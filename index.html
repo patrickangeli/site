@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrossel de Imagens</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.css"/>
+    <title>Dois Carrosséis de Imagens</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
-        .swiper {
+        .swiper-container {
             width: 100%;
-            height: 300px;
+            height: 200px;
+            margin-bottom: 20px;
         }
         .swiper-slide img {
             width: 100%;
@@ -18,27 +19,47 @@
     </style>
 </head>
 <body>
-    <div class="swiper">
+    <div class="swiper-container" id="swiper1">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="imagem1.jpg" alt="Imagem 1"></div>
             <div class="swiper-slide"><img src="imagem2.jpg" alt="Imagem 2"></div>
             <div class="swiper-slide"><img src="imagem3.jpg" alt="Imagem 3"></div>
         </div>
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@7/swiper-bundle.min.js"></script>
+    <div class="swiper-container" id="swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="imagem4.jpg" alt="Imagem 4"></div>
+            <div class="swiper-slide"><img src="imagem5.jpg" alt="Imagem 5"></div>
+            <div class="swiper-slide"><img src="imagem6.jpg" alt="Imagem 6"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-            },
+        var swiper1 = new Swiper('#swiper1', {
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '#swiper1 .swiper-button-next',
+                prevEl: '#swiper1 .swiper-button-prev',
+            },
+            pagination: {
+                el: '#swiper1 .swiper-pagination',
+            },
+        });
+
+        var swiper2 = new Swiper('#swiper2', {
+            navigation: {
+                nextEl: '#swiper2 .swiper-button-next',
+                prevEl: '#swiper2 .swiper-button-prev',
+            },
+            pagination: {
+                el: '#swiper2 .swiper-pagination',
             },
         });
     </script>
